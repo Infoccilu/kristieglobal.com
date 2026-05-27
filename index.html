@@ -17,7 +17,6 @@
 
     :root {
       --ccilu-navy: #173b84;
-      --ccilu-dark-navy: #0f2f70;
       --ccilu-text: rgba(255,255,255,0.92);
     }
 
@@ -29,21 +28,10 @@
       overflow: hidden;
     }
 
-    /* Top banner */
-    .top-bar {
-      width: 100%;
-      background: var(--ccilu-dark-navy);
-      padding: 14px 24px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
     /* Main section */
     .hero {
       width: 100%;
-      height: calc(100vh - 52px);
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -104,11 +92,6 @@
     /* Mobile */
     @media (max-width: 768px) {
 
-      .top-bar {
-        text-align: center;
-        font-size: 12px;
-      }
-
       h1 {
         font-size: 48px;
       }
@@ -132,10 +115,6 @@
 
 <body>
 
-  <div class="top-bar">
-    CCILU GREEN TECHNOLOGY
-  </div>
-
   <section class="hero">
 
     <div class="container">
@@ -151,9 +130,9 @@
         Powered by CCILU Green Technology
       </div>
 
-    <a class="btn" href="https://ccilu.com">
-  Visit CCILU
-</a>
+      <a class="btn" href="https://ccilu.com">
+        Visit CCILU
+      </a>
 
     </div>
 
