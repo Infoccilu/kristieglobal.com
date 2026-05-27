@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kristie USA</title>
 
+  <!-- Condensed font similar to CCILU -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -12,95 +15,122 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --ccilu-navy: #173b84;
+      --ccilu-light: #f5f5f5;
+      --ccilu-text: rgba(255,255,255,0.92);
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Oswald', sans-serif;
+      background: var(--ccilu-navy);
       color: white;
       height: 100vh;
       overflow: hidden;
-      background: #000;
     }
 
     .hero {
-      position: relative;
       width: 100%;
       height: 100vh;
       background:
         linear-gradient(
-          rgba(0, 0, 0, 0.45),
-          rgba(0, 0, 0, 0.55)
-        ),
-        url('https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=2000&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
+          rgba(23, 59, 132, 0.88),
+          rgba(12, 33, 77, 0.92)
+        );
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+      position: relative;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 900px;
     }
 
     h1 {
-      font-size: 68px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+      font-size: 78px;
+      font-weight: 700;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      margin-bottom: 24px;
+      line-height: 1;
     }
 
     p {
-      font-size: 22px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.92);
-      margin-bottom: 30px;
+      font-size: 26px;
+      line-height: 1.6;
+      font-weight: 300;
+      color: var(--ccilu-text);
+      letter-spacing: 0.5px;
+      margin-bottom: 38px;
     }
 
     .powered {
-      font-size: 14px;
-      letter-spacing: 3px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 35px;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 4px;
       text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 42px;
     }
 
     .btn {
       display: inline-block;
-      padding: 16px 34px;
+      padding: 18px 42px;
       background: white;
-      color: black;
+      color: var(--ccilu-navy);
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      transition: 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      transition: 0.3s ease;
     }
 
     .btn:hover {
-      background: #e5e5e5;
+      background: #e7e7e7;
+      transform: translateY(-2px);
+    }
+
+    /* subtle top banner style inspired by CCILU */
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0f2f70;
+      padding: 14px 20px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: left;
+      font-weight: 500;
     }
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 44px;
+        font-size: 48px;
       }
 
       p {
-        font-size: 18px;
+        font-size: 19px;
       }
 
       .powered {
         font-size: 12px;
-        line-height: 1.6;
+        line-height: 1.8;
       }
 
       .btn {
         width: 100%;
-        max-width: 260px;
+        max-width: 280px;
+      }
+
+      .top-bar {
+        text-align: center;
+        font-size: 12px;
       }
     }
   </style>
@@ -108,7 +138,12 @@
 
 <body>
 
+  <div class="top-bar">
+    CCILU GREEN TECHNOLOGY
+  </div>
+
   <section class="hero">
+
     <div class="container">
 
       <h1>Kristie USA</h1>
@@ -127,8 +162,8 @@
       </a>
 
     </div>
+
   </section>
 
 </body>
-</html>
 </html>
