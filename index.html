@@ -4,139 +4,393 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kristie USA</title>
-
-  <!-- CCILU-style condensed font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --ccilu-navy: #173b84;
-      --ccilu-text: rgba(255,255,255,0.92);
+      --navy: #173b84;
+      --navy-light: #1e4899;
+      --white: #ffffff;
+      --off-white: rgba(255,255,255,0.88);
+      --muted: rgba(255,255,255,0.62);
     }
 
     body {
       font-family: 'Oswald', sans-serif;
-      background: var(--ccilu-navy);
-      color: white;
-      height: 100vh;
-      overflow: hidden;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
     }
 
-    /* Main section */
+    /* ── HERO ── */
     .hero {
-      width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 20px;
-      background: var(--ccilu-navy);
+      padding: 80px 24px 60px;
+      background: var(--navy);
+      position: relative;
     }
-
-    .container {
-      max-width: 900px;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.15);
     }
+    .hero-inner { max-width: 820px; }
 
-    h1 {
-      font-size: 78px;
+    .hero h1 {
+      font-size: clamp(52px, 8vw, 84px);
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       line-height: 1;
       margin-bottom: 28px;
     }
-
-    p {
-      font-size: 26px;
-      line-height: 1.6;
+    .hero p {
+      font-size: clamp(17px, 2.4vw, 24px);
+      line-height: 1.65;
       font-weight: 300;
-      color: var(--ccilu-text);
-      letter-spacing: 0.5px;
-      margin-bottom: 38px;
+      color: var(--off-white);
+      letter-spacing: 0.4px;
+      margin-bottom: 0;
     }
 
-    .powered {
-      font-size: 15px;
+    /* ── IMAGE DIVIDER ── */
+    /*
+      HOW TO ADD AN IMAGE FROM CCILU.COM:
+      ─────────────────────────────────────────────────────────────
+      Option A — Direct URL (simplest, works as long as their server allows it):
+        Replace the src below with the full image URL from ccilu.com.
+        Right-click the image on ccilu.com → "Copy image address" → paste here.
+        Example: src="https://cdn.ccilu.com/path/to/image.jpg"
+
+      Option B — Download & host yourself (most reliable for GitHub Pages):
+        1. Right-click the image on ccilu.com → "Save image as…"
+        2. Save it into your GitHub repo folder (e.g. as "ccilu-tech.webp")
+        3. Change src below to: src="ccilu-tech.webp"
+        This is the recommended approach so the image never breaks.
+        NOTE: .webp files work perfectly — smaller & faster than jpg/png.
+      ─────────────────────────────────────────────────────────────
+    */
+    .hero-image {
+      width: 100%;
+      background: #0f2a61;
+      padding: 0;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.92;
+    }
+    /* Placeholder shown when no real image is set */
+    .img-placeholder {
+      width: 100%;
+      height: 320px;
+      background: linear-gradient(135deg, #0f2a61 0%, #1a3d9e 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
       font-weight: 400;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 42px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .img-placeholder svg { opacity: 0.3; }
+
+    /* ── VISION ── */
+    .vision {
+      background: var(--navy);
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+    .vision-list {
+      list-style: none;
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .vision-list li {
+      font-size: clamp(15px, 2vw, 19px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--off-white);
+      letter-spacing: 0.3px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 18px 42px;
-      background: white;
-      color: var(--ccilu-navy);
-      text-decoration: none;
+    /* ── TECH SECTION ── */
+    .tech {
+      background: #0f2a61;
+      padding: 80px 24px 80px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .tech-headline {
+      font-size: clamp(22px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .tech-sub {
+      font-size: clamp(14px, 1.8vw, 18px);
+      font-weight: 300;
+      color: var(--off-white);
+      margin-bottom: 56px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* Horizontal technology cards — mirrors ccilu.com layout */
+    .tech-grid {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .tech-card {
+      flex: 1 1 160px;
+      max-width: 200px;
+      text-align: center;
+    }
+    .tech-card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+    .tech-card-img::after {
+      content: attr(data-label);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+    }
+    .tech-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .tech-card-name {
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 2px;
-      transition: 0.3s ease;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .tech-card-desc {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--muted);
+      letter-spacing: 0.2px;
     }
 
-    .btn:hover {
-      background: #e8e8e8;
-      transform: translateY(-2px);
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 40px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-powered {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .footer-link {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .footer-link:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.7);
     }
 
-    /* Mobile */
+    /* ── RESPONSIVE: TABLET (≤ 768px) ── */
     @media (max-width: 768px) {
+      .hero { min-height: 100svh; padding: 60px 28px 48px; }
+      .hero h1 { font-size: clamp(40px, 10vw, 60px); letter-spacing: 2px; margin-bottom: 20px; }
+      .hero p { font-size: clamp(16px, 3.2vw, 20px); }
+      .img-placeholder { height: 240px; font-size: 12px; letter-spacing: 2px; }
+      .vision { padding: 60px 28px 48px; }
+      .section-label { font-size: 11px; letter-spacing: 4px; margin-bottom: 32px; }
+      .vision-list { gap: 18px; max-width: 560px; }
+      .vision-list li { font-size: clamp(15px, 2.8vw, 18px); }
+      .tech { padding: 60px 28px 60px; }
+      .tech-headline { font-size: clamp(20px, 4vw, 30px); letter-spacing: 2px; }
+      .tech-sub { font-size: clamp(13px, 2.2vw, 16px); margin-bottom: 40px; }
+      .tech-grid { gap: 20px; max-width: 600px; }
+      .tech-card { flex: 1 1 140px; max-width: 170px; }
+      .tech-card-name { font-size: 12px; }
+      .tech-card-desc { font-size: 11px; }
+      .footer { padding: 36px 24px; }
+      .footer-powered { font-size: 11px; letter-spacing: 4px; }
+      .footer-link { font-size: 12px; letter-spacing: 2px; }
+    }
 
-      h1 {
-        font-size: 48px;
-      }
-
-      p {
-        font-size: 18px;
-      }
-
-      .powered {
-        font-size: 12px;
-        line-height: 1.8;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 280px;
-      }
+    /* ── RESPONSIVE: MOBILE (≤ 480px) ── */
+    @media (max-width: 480px) {
+      .hero { padding: 48px 20px 40px; min-height: 100svh; }
+      .hero h1 { font-size: clamp(36px, 12vw, 52px); letter-spacing: 1px; margin-bottom: 16px; }
+      .hero p { font-size: 16px; line-height: 1.7; }
+      .img-placeholder { height: 180px; font-size: 10px; }
+      .vision { padding: 48px 20px 40px; }
+      .section-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 24px; }
+      .vision-list { gap: 16px; text-align: center; }
+      .vision-list li { font-size: 15px; line-height: 1.65; }
+      .tech { padding: 48px 20px 48px; }
+      .tech-headline { font-size: 22px; letter-spacing: 1.5px; margin-bottom: 10px; }
+      .tech-sub { font-size: 14px; margin-bottom: 32px; line-height: 1.65; }
+      /* 2-column grid on small phones */
+      .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 340px; }
+      .tech-card { flex: unset; max-width: unset; width: 100%; }
+      /* 5th card centered on its own row */
+      .tech-card:last-child { grid-column: 1 / -1; max-width: 160px; margin: 0 auto; }
+      .tech-card-name { font-size: 11px; letter-spacing: 1.5px; }
+      .tech-card-desc { font-size: 11px; }
+      .footer { padding: 32px 20px; gap: 12px; }
+      .footer-powered { font-size: 10px; letter-spacing: 3px; line-height: 1.7; text-align: center; }
+      .footer-link { font-size: 11px; letter-spacing: 2px; }
     }
   </style>
 </head>
-
 <body>
 
+  <!-- HERO -->
   <section class="hero">
-
-    <div class="container">
-
+    <div class="hero-inner">
       <h1>Kristie USA</h1>
-
       <p>
         Integrating Sustainable Technologies across Sports Licensing,
         Entertainment and Manufacturing across the U.S., Canada, and Mexico.
       </p>
+    </div>
+  </section>
 
-      <div class="powered">
-        Powered by CCILU Green Technology
+  <div class="hero-image">
+    <div class="hero-image">
+           <img src="Sustainability.webp" alt="CCILU sustainable footwear technology" />
+         </div>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- VISION -->
+  <section class="vision">
+    <div class="section-label">Kristie's Vision Is Simple</div>
+    <ul class="vision-list">
+      <li>Decrease the waste and plastic going into the landfills and the ocean</li>
+      <li>Create a quality and trustworthy product, while decreasing our carbon footprint</li>
+      <li>Help save the planet by promoting conscious consumerism</li>
+    </ul>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section class="tech">
+    <p class="section-label">Collectively Creating a Sustainable Future</p>
+    <h2 class="tech-headline">Our Five Green Technologies</h2>
+    <p class="tech-sub">
+      Sustainability is at the forefront of product development. We offer five
+      environmentally friendly technologies to decrease carbon emissions and waste production.
+    </p>
+
+    <div class="tech-grid">
+
+      <div class="tech-card">
+
+        <div class="tech-card-img"><img src="Xpresole.webp" alt="XpreSole® recycled coffee grounds shoe technology" /></div>
+        <div class="tech-card-name">XpreSole®</div>
+        <div class="tech-card-desc">Made from recycled coffee grounds. Vegan, dirt-proof, water-repellent, and odor-controlled.</div>
       </div>
 
-      <a class="btn" href="https://ccilu.com">
-        Visit CCILU
-      </a>
+      <div class="tech-card">
+        <div class="tech-card-img"><img src="Greenplax.webp" alt="GreenPlax® shoes made from recycled ocean plastic bottles" /></div>
+        <div class="tech-card-name">GreenPlax®</div>
+        <div class="tech-card-desc">Shoes made from recycled plastic bottles pulled from the ocean, conserving our environment.</div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-card-img"><img src="Silicomfy.webp" alt="SiliComfy® eco-conscious silicone comfort technology" /></div>
+        <div class="tech-card-name">SiliComfy®</div>
+        <div class="tech-card-desc">Superior comfort and flexibility with eco-conscious silicone-based materials.</div>
+      </div>
+
+      <div class="tech-card">
+        <div class="tech-card-img"><img src="CCILUCell.webp" alt="CCILUCELL® eco-friendly composite shock absorption technology" /></div>
+        <div class="tech-card-name">CCILUCELL®</div>
+        <div class="tech-card-desc">Eco-friendly composite with shock absorption, abrasion resistance, and antimicrobial properties.</div>
+      </div>
+
+      <div class="tech-card">
+     <div class="tech-card-img"><img src="SkiveOn.webp" alt="Skive-On® waste-reducing shoe construction technology" /></div>
+        <div class="tech-card-name">Skive-On®</div>
+        <div class="tech-card-desc">Innovative construction technique reducing material waste throughout the manufacturing process.</div>
+      </div>
 
     </div>
-
   </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="footer-powered">Powered by CCILU Green Technology</span>
+    <a class="footer-link" href="https://www.ccilu.com" target="_blank" rel="noopener noreferrer">
+      www.ccilu.com
+    </a>
+  </footer>
 
 </body>
 </html>
