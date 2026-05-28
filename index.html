@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kristie USA</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --navy: #173b84;
@@ -33,14 +39,20 @@
       background: var(--navy);
       position: relative;
     }
+
     .hero::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: rgba(255,255,255,0.15);
     }
-    .hero-inner { max-width: 820px; }
+
+    .hero-inner {
+      max-width: 820px;
+    }
 
     .hero h1 {
       font-size: clamp(52px, 8vw, 84px);
@@ -50,21 +62,21 @@
       line-height: 1;
       margin-bottom: 28px;
     }
+
     .hero p {
       font-size: clamp(17px, 2.4vw, 24px);
       line-height: 1.65;
       font-weight: 300;
       color: var(--off-white);
       letter-spacing: 0.4px;
-      margin-bottom: 0;
     }
-    
+
     .hero-image {
       width: 100%;
       background: #0f2a61;
-      padding: 0;
       overflow: hidden;
     }
+
     .hero-image img {
       width: 100%;
       max-height: 420px;
@@ -73,25 +85,6 @@
       display: block;
       opacity: 0.92;
     }
-    /* Placeholder shown when no real image is set */
-    .img-placeholder {
-      width: 100%;
-      height: 320px;
-      background: linear-gradient(135deg, #0f2a61 0%, #1a3d9e 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: rgba(255,255,255,0.4);
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .img-placeholder svg { opacity: 0.3; }
 
     /* ── VISION ── */
     .vision {
@@ -99,13 +92,26 @@
       padding: 80px 24px 64px;
       text-align: center;
     }
+
+    /* SMALL SUBTITLE STYLE */
     .section-label {
-      font-size: clamp(22px, 3.5vw, 38px);
-      font-weight: 700;
-      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 48px;
+      margin-bottom: 18px;
+      color: var(--muted);
     }
+
+    .vision-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 42px;
+      line-height: 1.2;
+    }
+
     .vision-list {
       list-style: none;
       max-width: 680px;
@@ -114,28 +120,32 @@
       flex-direction: column;
       gap: 20px;
     }
+
     .vision-list li {
-      font-size: clamp(15px, 2vw, 19px);
+      font-size: clamp(14px, 1.8vw, 18px);
       font-weight: 300;
       line-height: 1.6;
       color: var(--off-white);
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
     }
 
     /* ── TECH SECTION ── */
     .tech {
       background: #0f2a61;
-      padding: 80px 24px 80px;
+      padding: 80px 24px;
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
+
     .tech-headline {
-      font-size: clamp(22px, 3.5vw, 38px);
+      font-size: clamp(28px, 4vw, 44px);
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      line-height: 1.2;
     }
+
     .tech-sub {
       font-size: clamp(14px, 1.8vw, 18px);
       font-weight: 300;
@@ -145,9 +155,10 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.6;
+      letter-spacing: 0.2px;
     }
 
-    /* Horizontal technology cards — mirrors ccilu.com layout */
+    /* ── TECH GRID ── */
     .tech-grid {
       display: flex;
       gap: 28px;
@@ -156,11 +167,13 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+
     .tech-card {
       flex: 1 1 160px;
       max-width: 200px;
       text-align: center;
     }
+
     .tech-card-img {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -170,24 +183,14 @@
       overflow: hidden;
       position: relative;
     }
-    .tech-card-img::after {
-      content: attr(data-label);
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: rgba(255,255,255,0.25);
-      text-transform: uppercase;
-    }
+
     .tech-card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .tech-card-name {
       font-size: 13px;
       font-weight: 600;
@@ -196,6 +199,7 @@
       color: var(--white);
       margin-bottom: 8px;
     }
+
     .tech-card-desc {
       font-size: 12px;
       font-weight: 300;
@@ -215,6 +219,7 @@
       align-items: center;
       gap: 14px;
     }
+
     .footer-powered {
       font-size: 12px;
       font-weight: 400;
@@ -222,6 +227,7 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+
     .footer-link {
       font-size: 13px;
       font-weight: 500;
@@ -233,65 +239,115 @@
       padding-bottom: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
+
     .footer-link:hover {
       color: var(--white);
       border-color: rgba(255,255,255,0.7);
     }
 
-    /* ── RESPONSIVE: TABLET (≤ 768px) ── */
+    /* ── TABLET ── */
     @media (max-width: 768px) {
-      .hero { padding: 60px 28px 48px; }
-      .hero h1 { font-size: clamp(40px, 10vw, 60px); letter-spacing: 2px; margin-bottom: 20px; }
-      .hero p { font-size: clamp(16px, 3.2vw, 20px); }
-      .img-placeholder { height: 240px; font-size: 12px; letter-spacing: 2px; }
-      .vision { padding: 60px 28px 48px; }
-      .section-label { font-size: 11px; letter-spacing: 4px; margin-bottom: 32px; }
-      .vision-list { gap: 18px; max-width: 560px; }
-      .vision-list li { font-size: clamp(15px, 2.8vw, 18px); }
-      .tech { padding: 60px 28px 60px; }
-      .tech-headline { font-size: clamp(20px, 4vw, 30px); letter-spacing: 2px; }
-      .tech-sub { font-size: clamp(13px, 2.2vw, 16px); margin-bottom: 40px; }
-      .tech-grid { gap: 20px; max-width: 600px; }
-      .tech-card { flex: 1 1 140px; max-width: 170px; }
-      .tech-card-name { font-size: 12px; }
-      .tech-card-desc { font-size: 11px; }
-      .footer { padding: 36px 24px; }
-      .footer-powered { font-size: 11px; letter-spacing: 4px; }
-      .footer-link { font-size: 12px; letter-spacing: 2px; }
+
+      .hero {
+        padding: 60px 28px 48px;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 10vw, 60px);
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: clamp(16px, 3.2vw, 20px);
+      }
+
+      .vision,
+      .tech {
+        padding: 60px 28px;
+      }
+
+      .vision-title,
+      .tech-headline {
+        font-size: clamp(24px, 4vw, 34px);
+      }
+
+      .tech-grid {
+        gap: 20px;
+        max-width: 600px;
+      }
+
+      .tech-card {
+        flex: 1 1 140px;
+        max-width: 170px;
+      }
     }
 
-    /* ── RESPONSIVE: MOBILE (≤ 480px) ── */
+    /* ── MOBILE ── */
     @media (max-width: 480px) {
-      .hero { padding: 48px 20px 40px; }
-      .hero h1 { font-size: clamp(36px, 12vw, 52px); letter-spacing: 1px; margin-bottom: 16px; }
-      .hero p { font-size: 16px; line-height: 1.7; }
-      .img-placeholder { height: 180px; font-size: 10px; }
-      .vision { padding: 48px 20px 40px; }
-      .section-label { font-size: 10px; letter-spacing: 3px; margin-bottom: 24px; }
-      .vision-list { gap: 16px; text-align: center; }
-      .vision-list li { font-size: 15px; line-height: 1.65; }
-      .tech { padding: 48px 20px 48px; }
-      .tech-headline { font-size: 22px; letter-spacing: 1.5px; margin-bottom: 10px; }
-      .tech-sub { font-size: 14px; margin-bottom: 32px; line-height: 1.65; }
-      /* 2-column grid on small phones */
-      .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 340px; }
-      .tech-card { flex: unset; max-width: unset; width: 100%; }
-      /* 5th card centered on its own row */
-      .tech-card:last-child { grid-column: 1 / -1; max-width: 160px; margin: 0 auto; }
-      .tech-card-name { font-size: 11px; letter-spacing: 1.5px; }
-      .tech-card-desc { font-size: 11px; }
-      .footer { padding: 32px 20px; gap: 12px; }
-      .footer-powered { font-size: 10px; letter-spacing: 3px; line-height: 1.7; text-align: center; }
-      .footer-link { font-size: 11px; letter-spacing: 2px; }
+
+      .hero {
+        padding: 48px 20px 40px;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 12vw, 52px);
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .vision,
+      .tech {
+        padding: 48px 20px;
+      }
+
+      .section-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .vision-title,
+      .tech-headline {
+        font-size: 24px;
+      }
+
+      .vision-list li,
+      .tech-sub {
+        font-size: 14px;
+      }
+
+      .tech-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        max-width: 340px;
+      }
+
+      .tech-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 160px;
+        margin: 0 auto;
+      }
+
+      .footer {
+        padding: 32px 20px;
+      }
     }
+
   </style>
 </head>
+
 <body>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <h1>Kristie USA</h1>
+
       <p>
         Integrating Sustainable Technologies across Sports Licensing,
         Entertainment and Manufacturing across the U.S., Canada, and Mexico.
@@ -299,71 +355,145 @@
     </div>
   </section>
 
-<div class="hero-image">
-  <img src="Sustainability.webp" alt="CCILU sustainable footwear technology" />
-</div>
+  <!-- HERO IMAGE -->
+  <div class="hero-image">
+    <img src="Sustainability.webp" alt="CCILU sustainable footwear technology" />
+  </div>
 
   <!-- VISION -->
   <section class="vision">
-    <div class="section-label">Kristie's Vision Is Simple</div>
+
+    <p class="section-label">Our Mission</p>
+
+    <h2 class="vision-title">
+      Kristie's Vision Is Simple
+    </h2>
+
     <ul class="vision-list">
-      <li>Decrease the waste and plastic going into the landfills and the ocean</li>
-      <li>Create a quality and trustworthy product, while decreasing our carbon footprint</li>
-      <li>Help save the planet by promoting conscious consumerism</li>
+      <li>
+        Decrease the waste and plastic going into the landfills and the ocean
+      </li>
+
+      <li>
+        Create a quality and trustworthy product, while decreasing our carbon footprint
+      </li>
+
+      <li>
+        Help save the planet by promoting conscious consumerism
+      </li>
     </ul>
+
   </section>
 
   <!-- TECHNOLOGY -->
   <section class="tech">
-    <p class="section-label">Collectively Creating a Sustainable Future</p>
-    <h2 class="tech-headline">Our Five Green Technologies</h2>
+
+    <p class="section-label">
+      Collectively Creating a Sustainable Future
+    </p>
+
+    <h2 class="tech-headline">
+      Our Five Green Technologies
+    </h2>
+
     <p class="tech-sub">
-      Sustainability is at the forefront of product development. We offer five
-      environmentally friendly technologies to decrease carbon emissions and waste production.
+      Sustainability is at the forefront of product development.
+      We offer five environmentally friendly technologies to decrease
+      carbon emissions and waste production.
     </p>
 
     <div class="tech-grid">
 
+      <!-- XpreSole -->
       <div class="tech-card">
+        <div class="tech-card-img">
+          <img src="Xpresole.webp" alt="XpreSole® recycled coffee grounds shoe technology" />
+        </div>
 
-        <div class="tech-card-img"><img src="Xpresole.webp" alt="XpreSole® recycled coffee grounds shoe technology" /></div>
         <div class="tech-card-name">XpreSole®</div>
-        <div class="tech-card-desc">Made from recycled coffee grounds. Vegan, dirt-proof, water-repellent, and odor-controlled.</div>
+
+        <div class="tech-card-desc">
+          Made from recycled coffee grounds. Vegan, dirt-proof,
+          water-repellent, and odor-controlled.
+        </div>
       </div>
 
+      <!-- GreenPlax -->
       <div class="tech-card">
-        <div class="tech-card-img"><img src="Greenplax.webp" alt="GreenPlax® shoes made from recycled ocean plastic bottles" /></div>
+        <div class="tech-card-img">
+          <img src="Greenplax.webp" alt="GreenPlax® shoes made from recycled ocean plastic bottles" />
+        </div>
+
         <div class="tech-card-name">GreenPlax®</div>
-        <div class="tech-card-desc">Shoes made from recycled plastic bottles pulled from the ocean, conserving our environment.</div>
+
+        <div class="tech-card-desc">
+          Shoes made from recycled plastic bottles pulled from the ocean,
+          conserving our environment.
+        </div>
       </div>
 
+      <!-- SiliComfy -->
       <div class="tech-card">
-        <div class="tech-card-img"><img src="Silicomfy_.webp" alt="SiliComfy® eco-conscious silicone comfort technology" /></div>
+        <div class="tech-card-img">
+          <img src="Silicomfy_.webp" alt="SiliComfy® eco-conscious silicone comfort technology" />
+        </div>
+
         <div class="tech-card-name">SiliComfy®</div>
-        <div class="tech-card-desc">Superior comfort and flexibility with eco-conscious silicone-based materials.</div>
+
+        <div class="tech-card-desc">
+          Superior comfort and flexibility with eco-conscious
+          silicone-based materials.
+        </div>
       </div>
 
+      <!-- CCILUCELL -->
       <div class="tech-card">
-        <div class="tech-card-img"><img src="CCILUCell.webp" alt="CCILUCELL® eco-friendly composite shock absorption technology" /></div>
+        <div class="tech-card-img">
+          <img src="CCILUCell.webp" alt="CCILUCELL® eco-friendly composite shock absorption technology" />
+        </div>
+
         <div class="tech-card-name">CCILUCELL®</div>
-        <div class="tech-card-desc">An ultra-lightweight, eco-friendly material offering advanced impact resistance, high durability, and built-in antimicrobial protection..</div>
+
+        <div class="tech-card-desc">
+          An ultra-lightweight, eco-friendly material offering
+          advanced impact resistance, durability, and antimicrobial protection.
+        </div>
       </div>
 
+      <!-- Skive-On -->
       <div class="tech-card">
-     <div class="tech-card-img"><img src="SkiveOn.webp" alt="Skive-On® waste-reducing shoe construction technology" /></div>
+        <div class="tech-card-img">
+          <img src="SkiveOn.webp" alt="Skive-On® waste-reducing shoe construction technology" />
+        </div>
+
         <div class="tech-card-name">Skive-On®</div>
-        <div class="tech-card-desc">An impact-absorbing engineered outsole with 100+ independent cubes, maximizing flexibility, shock absorption, and natural foot movement.</div>
+
+        <div class="tech-card-desc">
+          An engineered outsole with 100+ independent cubes,
+          maximizing flexibility and shock absorption.
+        </div>
       </div>
 
     </div>
+
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <span class="footer-powered">Powered by CCILU Green Technology</span>
-    <a class="footer-link" href="https://www.ccilu.com" target="_blank" rel="noopener noreferrer">
+
+    <span class="footer-powered">
+      Powered by CCILU Green Technology
+    </span>
+
+    <a
+      class="footer-link"
+      href="https://www.ccilu.com"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       www.ccilu.com
     </a>
+
   </footer>
 
 </body>
